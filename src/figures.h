@@ -10,7 +10,7 @@ typedef struct{
 
 typedef struct{
     double x,y;
-    char cb[20], cp[20], txt[20];
+    char cb[20], cp[20], txt[40];
 }text;
 
 typedef struct{
@@ -25,7 +25,7 @@ typedef union{
     line l;
 }fig;
 
-typedef struct{
+typedef struct node {
     fig *figure;
     int i;
     char figtype;

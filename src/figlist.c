@@ -11,7 +11,7 @@ node *addnode(node *list,char type,int index){
     node *new;
 
     if(list==NULL){
-        list=malloc(sizeof(node));
+        list=(node*)malloc(sizeof(node));
         list->figtype=type;
         list->i=index;
         list->figure=NULL;
@@ -20,7 +20,7 @@ node *addnode(node *list,char type,int index){
         while(list->next!=NULL)
             list=list->next;
         
-        new=malloc(sizeof(node));
+        new=(node*)malloc(sizeof(node));
         new->figtype=type;
         new->i=index;
         new->figure=NULL;
@@ -52,11 +52,12 @@ node *deletefig(node *list,int index){
                 free(aux->figure);
                 free(aux);
             }
+            return list;
         }
         aux2=aux;
         aux=aux->next;
     }
-    
+    return list;
 }
 
 void deletelist(node *list){
@@ -71,7 +72,7 @@ void deletelist(node *list){
 }
 
 void circle(node *list,double x,double y,double r,char *cb,char *cp){
-    while(list!=NULL)
+    while(list->figure!=NULL)
        list=list->next;
     list->figure=malloc(sizeof(fig));
     list->figure->c.x=x;
@@ -82,7 +83,7 @@ void circle(node *list,double x,double y,double r,char *cb,char *cp){
      
 }
 void rectangle(node *list,double x,double y,double w,double h,char *cb,char *cp){
-     while(list!=NULL)
+     while(list->figure!=NULL)
        list=list->next;
     list->figure=malloc(sizeof(fig));
     list->figure->r.x=x;
@@ -93,7 +94,7 @@ void rectangle(node *list,double x,double y,double w,double h,char *cb,char *cp)
     strcpy(list->figure->r.cp,cp);
 }
 void texto(node *list,double x,double y,char *t,char *cb,char *cp){
-    while(list!=NULL)
+    while(list->figure!=NULL)
        list=list->next;
     list->figure=malloc(sizeof(fig));
     list->figure->t.x=x;
@@ -103,7 +104,7 @@ void texto(node *list,double x,double y,char *t,char *cb,char *cp){
     strcpy(list->figure->t.cp,cp);
 }
 void linha(node *list,double x1,double x2,double y1,double y2,char *c){
-    while(list!=NULL)
+    while(list->figure!=NULL)
        list=list->next;
     list->figure=malloc(sizeof(fig));
     list->figure->l.x1=x1;

@@ -27,11 +27,11 @@ void intcircrect(node *list,circ c,rect r,FILE *out){
 
       if(c.r>=sqrt(dx+dy)){
           fprintf(out,"SIM");
-          addnode(list,'r',0);
+          list=addnode(list,'r',0);
           rectangle(list,x,y,w,h,"black","none");
       }else{
           fprintf(out,"NAO");
-          addnode(list,'s',0);
+          list=addnode(list,'s',0);
           rectangle(list,x,y,w,h,"black","none");
       }  
 }
@@ -47,11 +47,11 @@ void intcircle(node *list,circ c1,circ c2,FILE *out){
 
     if(d<=c1.r+c2.r){
         fprintf(out,"SIM");
-        addnode(list,'r',0);
+        list=addnode(list,'r',0);
         rectangle(list,x,y,w,h,"black","none");
     }else{
         fprintf(out,"NAO");
-        addnode(list,'s',0);
+        list=addnode(list,'s',0);
         rectangle(list,x,y,w,h,"black","none");
     }
     
@@ -66,11 +66,11 @@ void intrectangle(node *list,rect r1,rect r2,FILE *out){
 
     if(w<=r1.w+r2.w && h<=r1.h+r2.h){
         fprintf(out,"SIM");
-        addnode(list,'r',0);
+        list=addnode(list,'r',0);
         rectangle(list,x,y,w,h,"black","none");
     }else{
         fprintf(out,"NAO");
-        addnode(list,'s',0);
+        list=addnode(list,'s',0);
         rectangle(list,x,y,w,h,"black","none");
     }
     
@@ -129,9 +129,9 @@ void intpointcircle(double x,double y,node *list,circ c,FILE *out){
         fprintf(out,"NAO INTERNO");
         strcpy(cpt,"magenta");
     }
-    addnode(list,'c',0);
+    list=addnode(list,'c',0);
     circle(list,x,y,2.5,"none",cpt);
-    addnode(list,'l',0);
+    list=addnode(list,'l',0);
     linha(list,c.x,x,c.y,y,cpt);
 }
 void intpointrect(double x,double y,node *list,rect r,FILE *out){
@@ -144,9 +144,9 @@ void intpointrect(double x,double y,node *list,rect r,FILE *out){
         fprintf(out,"NAO INTERNO");
         strcpy(cpt,"magenta");
     }
-    addnode(list,'c',0);
+    list=addnode(list,'c',0);
     circle(list,x,y,2.5,"none",cpt);
-    addnode(list,'l',0);
+    list=addnode(list,'l',0);
     linha(list,r.x,x,r.y,y,cpt);
 }
 void intern(int i,double x,double y,node *list,FILE *out){
