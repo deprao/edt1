@@ -20,7 +20,6 @@ node *geo(char *geofile){
     double x,y,w,h,r;
     char comm[3],cb[20],cp[20],t[40];
     node *list=makelist();
-    node *root;
     FILE *geoarq=fopen(geofile,"r");
     if(geoarq==NULL){
         perror("falha ao abrir arquivo");
@@ -50,7 +49,7 @@ node *geo(char *geofile){
           }
     }
     fclose(geoarq);
-    return root;
+    return list;
 }
 
 void qry(node *list,char *qryfile,char *outname){
@@ -58,7 +57,7 @@ void qry(node *list,char *qryfile,char *outname){
     char *svgpath=malloc(strlen(outname)+4);
     int i,j;
     double x,y;
-    char *comm = NULL, *cb = NULL, *cp = NULL;
+    char comm[6], cb[20], cp[20];
 
     sprintf(txtpath,"%s.txt",outname);
     sprintf(svgpath,"%s.svg",outname);
