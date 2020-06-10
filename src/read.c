@@ -19,8 +19,8 @@ node *geo(char *geofile){
     int n=0,i,size=1000;
     double x,y,w,h,r;
     char comm[3],cb[20],cp[20],t[40];
-    node *list;
-    list=makelist();
+    node *list=makelist();
+    node *root;
     FILE *geoarq=fopen(geofile,"r");
     if(geoarq==NULL){
         perror("falha ao abrir arquivo");
@@ -50,7 +50,7 @@ node *geo(char *geofile){
           }
     }
     fclose(geoarq);
-    return list;
+    return root;
 }
 
 void qry(node *list,char *qryfile,char *outname){

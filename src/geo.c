@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"figures.h"
-#include"figlist.h"
 
 void drawc(double r, double x, double y, char *corp, char *corb,FILE *g){
     fprintf(g,"<circle cx='%lf' cy='%lf' r='%lf' fill='%s' stroke='%s'/>\n",x,y,r,corp,corb);

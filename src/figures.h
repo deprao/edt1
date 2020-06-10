@@ -15,7 +15,7 @@ typedef struct{
 
 typedef struct{
     double x1,y1,x2,y2;
-    char *cor;
+    char cor[20];
 }line;
 
 typedef union{
