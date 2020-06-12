@@ -9,7 +9,7 @@ void drawr(double w,double h, double x, double y, char *corp, char *corb,FILE *g
     fprintf(g,"<rect x='%lf' y='%lf' width='%lf' height='%lf' fill='%s' stroke='%s'/>\n",x,y,w,h,corp,corb);
 }
 void wtext(double x, double y, char *corp, char *corb, char *txto,FILE *g){
-    fprintf(g,"<text x='%lf' y='%lf' fill='%s' stroke='%s' >%s</>\n",x,y,corp,corb,txto);
+    fprintf(g,"<text x='%lf' y='%lf' fill='%s' stroke='%s' >%s</text>\n",x,y,corp,corb,txto);
 }
 void drawl(double x1,double x2,double y1,double y2,char *corl,FILE *g){
     fprintf(g,"<line x1='%lf' y1='%lf' x2='%lf' y2='%lf' stroke-width='2' stroke='%s'/>\n",x1,y1,x2,y2,corl);

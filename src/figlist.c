@@ -8,7 +8,7 @@ node *makelist(){
 }
 
 node *addnode(node *list,char type,int index){
-    node *new;
+    node *aux;
 
     if(list==NULL){
         list=malloc(sizeof(node));
@@ -17,14 +17,15 @@ node *addnode(node *list,char type,int index){
         list->figure=NULL;
         list->next=NULL;
     }else{
-        while(list->next!=NULL)
-            list=list->next;
+        aux=list;
+        while(aux->next!=NULL)
+            aux=aux->next;
         
-        new=malloc(sizeof(node));
-        new->figtype=type;
-        new->i=index;
-        new->figure=NULL;
-        list->next=new;
+        aux->next=malloc(sizeof(node));
+        aux->next->figtype=type;
+        aux->next->i=index;
+        aux->next->figure=NULL;
+        aux->next->next=NULL;
     }
     return list;
 }

@@ -74,8 +74,7 @@ int main(int argc, char *argv[]){
     sprintf(out,"%s/%s.svg",outpath,filename);
     svgen(out,list);
     if(qrypath!=NULL){
-        qname=getfile(geopath);
-        strcpy(qname,getfile(qrypath));
+        qname=getfile(qrypath);
         qout = malloc((strlen(outpath)+strlen(filename)+strlen(qname)+3));
         sprintf(qout,"%s/%s-%s",outpath,filename,qname);
         qry(list,qryname,qout);
