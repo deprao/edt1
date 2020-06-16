@@ -152,7 +152,7 @@ void intpointrect(double x,double y,node *list,rect r,FILE *out){
 void intern(int i,double x,double y,node *list,FILE *out){
     node *root=list;
 
-    fprintf(out,"i? %d %lf %lf\n",i,x,y);
+    fprintf(out,"i? %d %.2lf %.2lf\n",i,x,y);
     list=searchfig(list,i);
     switch(list->figtype){
         case 'c':

@@ -53,8 +53,8 @@ node *geo(char *geofile){
 }
 
 void qry(node *list,char *qryfile,char *outname){
-    char *txtpath=malloc(strlen(outname)+4);
-    char *svgpath=malloc(strlen(outname)+4);
+    char *txtpath=malloc(strlen(outname)+5);
+    char *svgpath=malloc(strlen(outname)+5);
     int i,j;
     double x,y;
     char comm[6], cb[20], cp[20];
@@ -103,4 +103,6 @@ void qry(node *list,char *qryfile,char *outname){
     svgen(svgpath,list);
     fclose(qryarq);
     fclose(out);
+    free(txtpath);
+    free(svgpath);
 }
