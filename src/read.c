@@ -91,13 +91,13 @@ void qry(node *list,char *qryfile,char *outname){
         if(strcmp(comm,"delf")==0){
             fscanf(qryarq,"%d",&i);
             fprintf(out,"delf %d\n",i);
-            list=delete(i,list,out);
+            list=delf(i,list,out);
         }
         if(strcmp(comm,"delf*")==0){
             fscanf(qryarq,"%d %d",&i,&j);
             fprintf(out,"delf* %d %d\n",i,j);
             for(int k=i;k<=j;i++)
-                list=delete(k,list,out);
+                list=delf(k,list,out);
         }
     }
     svgen(svgpath,list);

@@ -26,9 +26,10 @@ void paint(int i,char *cb,char *cp,node *list,FILE *out){
          
 }
 
-node *delete(int i,node *list,FILE *out){
+node *delf(int i,node *list,FILE *out){
       node *aux=searchfig(list,i);
       
+     if(aux!=NULL){ 
      switch(aux->figtype){
         case 'c':
          fprintf(out,"%d: %.2lf %.2lf %.2lf %s %s\n",i,aux->figure->c.x,aux->figure->c.y,aux->figure->c.r,aux->figure->c.cb,aux->figure->c.cp);
@@ -41,5 +42,6 @@ node *delete(int i,node *list,FILE *out){
           break;
      }
      list=deletefig(list,i);
+     }
      return list;
 }
