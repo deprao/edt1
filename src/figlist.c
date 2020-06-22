@@ -75,7 +75,7 @@ void deletelist(node *list){
 void circle(node *list,double x,double y,double r,char *cb,char *cp){
     while(list->figure!=NULL)
        list=list->next;
-    list->figure=malloc(sizeof(double)*3 + sizeof(char)*42);
+    list->figure=malloc(sizeof(double)*3 + sizeof(char)*40);
     list->figure->c.x=x;
     list->figure->c.y=y;
     list->figure->c.r=r;
@@ -86,7 +86,7 @@ void circle(node *list,double x,double y,double r,char *cb,char *cp){
 void rectangle(node *list,double x,double y,double w,double h,char *cb,char *cp){
      while(list->figure!=NULL)
        list=list->next;
-    list->figure=malloc(sizeof(double)*4+sizeof(char)*42);
+    list->figure=malloc(sizeof(double)*4+sizeof(char)*40);
     list->figure->r.x=x;
     list->figure->r.y=y;
     list->figure->r.w=w;
@@ -97,7 +97,7 @@ void rectangle(node *list,double x,double y,double w,double h,char *cb,char *cp)
 void texto(node *list,double x,double y,char *t,char *cb,char *cp){
     while(list->figure!=NULL)
        list=list->next;
-    list->figure=malloc(sizeof(double)*2+sizeof(char)*83);
+    list->figure=malloc(sizeof(double)*2+sizeof(char)*80);
     list->figure->t.x=x;
     list->figure->t.y=y;
     strcpy(list->figure->t.txt,t);
@@ -107,7 +107,7 @@ void texto(node *list,double x,double y,char *t,char *cb,char *cp){
 void linha(node *list,double x1,double x2,double y1,double y2,char *c){
     while(list->figure!=NULL)
        list=list->next;
-    list->figure=malloc(sizeof(double)*4+sizeof(char)*21);
+    list->figure=malloc(sizeof(double)*4+sizeof(char)*20);
     list->figure->l.x1=x1;
     list->figure->l.y1=y1;
     list->figure->l.x2=x2;

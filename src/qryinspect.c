@@ -26,12 +26,12 @@ void intcircrect(node *list,circ c,rect r,FILE *out){
       w=fmax(r.x+r.w,c.x+c.r)-x;
 
       if(c.r>=sqrt(dx+dy)){
-          fprintf(out,"SIM");
-          list=addnode(list,'r',0);
+          fprintf(out,"SIM\n");
+          list=addnode(list,'r',-1);
           rectangle(list,x,y,w,h,"black","none");
       }else{
-          fprintf(out,"NAO");
-          list=addnode(list,'s',0);
+          fprintf(out,"NAO\n");
+          list=addnode(list,'s',-1);
           rectangle(list,x,y,w,h,"black","none");
       }  
 }
@@ -46,12 +46,12 @@ void intcircle(node *list,circ c1,circ c2,FILE *out){
     w=fmax(c1.x+c1.r,c2.x+c2.r)-x;
 
     if(d<=c1.r+c2.r){
-        fprintf(out,"SIM");
-        list=addnode(list,'r',0);
+        fprintf(out,"SIM\n");
+        list=addnode(list,'r',-1);
         rectangle(list,x,y,w,h,"black","none");
     }else{
-        fprintf(out,"NAO");
-        list=addnode(list,'s',0);
+        fprintf(out,"NAO\n");
+        list=addnode(list,'s',-1);
         rectangle(list,x,y,w,h,"black","none");
     }
     
@@ -65,12 +65,12 @@ void intrectangle(node *list,rect r1,rect r2,FILE *out){
     h=fmax(r1.y+r2.h,r1.y+r2.h)-y;
 
     if(w<=r1.w+r2.w && h<=r1.h+r2.h){
-        fprintf(out,"SIM");
-        list=addnode(list,'r',0);
+        fprintf(out,"SIM\n");
+        list=addnode(list,'r',-1);
         rectangle(list,x,y,w,h,"black","none");
     }else{
-        fprintf(out,"NAO");
-        list=addnode(list,'s',0);
+        fprintf(out,"NAO\n");
+        list=addnode(list,'s',-1);
         rectangle(list,x,y,w,h,"black","none");
     }
     
@@ -119,40 +119,40 @@ void intersect(int i,int j,node *list,FILE *out){
 
 void intpointcircle(double x,double y,node *list,circ c,FILE *out){
     double d;
-    char *cpt = NULL;
+    char cpt[8];
 
     d=sqrt(pow(x-c.x,2)+pow(y-c.y,2));
     if(d<=c.r){
-        fprintf(out,"INTERNO");
+        fprintf(out,"INTERNO\n");
         strcpy(cpt,"blue");
     }else{
-        fprintf(out,"NAO INTERNO");
+        fprintf(out,"NAO INTERNO\n");
         strcpy(cpt,"magenta");
     }
-    list=addnode(list,'c',0);
+    list=addnode(list,'c',-1);
     circle(list,x,y,2.5,"none",cpt);
-    list=addnode(list,'l',0);
+    list=addnode(list,'l',-1);
     linha(list,c.x,x,c.y,y,cpt);
 }
 void intpointrect(double x,double y,node *list,rect r,FILE *out){
-    char *cpt = NULL;
+    char cpt[8];
     
     if(fdim(x,r.x)<=r.w && fdim(x,r.x)!=0 && fdim(y,r.y)<=r.h && fdim(y,r.y)!=0){
-        fprintf(out,"INTERNO");
+        fprintf(out,"INTERNO\n");
         strcpy(cpt,"blue");
     }else{
-        fprintf(out,"NAO INTERNO");
+        fprintf(out,"NAO INTERNO\n");
         strcpy(cpt,"magenta");
     }
-    list=addnode(list,'c',0);
+    list=addnode(list,'c',-1);
     circle(list,x,y,2.5,"none",cpt);
-    list=addnode(list,'l',0);
+    list=addnode(list,'l',-1);
     linha(list,r.x,x,r.y,y,cpt);
 }
 void intern(int i,double x,double y,node *list,FILE *out){
     node *root=list;
 
-    fprintf(out,"i? %d %.2lf %.2lf\n",i,x,y);
+    fprintf(out,"i? %d %lf %lf\n",i,x,y);
     list=searchfig(list,i);
     switch(list->figtype){
         case 'c':

@@ -43,7 +43,8 @@ node *geo(char *geofile){
               n++;
           }
           else if(strcmp(comm,"t")==0){
-              fscanf(geoarq,"%d %lf %lf %s %s %s",&i,&x,&y,cb,cp,t);
+              fscanf(geoarq,"%d %lf %lf %s %s",&i,&x,&y,cb,cp);
+              fgets(t,40,geoarq);
               list=addnode(list,'t',i);
               texto(list,x,y,t,cb,cp);
           }
@@ -90,13 +91,12 @@ void qry(node *list,char *qryfile,char *outname){
         }
         if(strcmp(comm,"delf")==0){
             fscanf(qryarq,"%d",&i);
-            fprintf(out,"delf %d\n",i);
             list=delf(i,list,out);
         }
         if(strcmp(comm,"delf*")==0){
             fscanf(qryarq,"%d %d",&i,&j);
             fprintf(out,"delf* %d %d\n",i,j);
-            for(int k=i;k<=j;i++)
+            for(int k=i;k<=j;k++)
                 list=delf(k,list,out);
         }
     }
