@@ -1,7 +1,7 @@
-void intersect(int i,int j,node *list,FILE *out);
-void intcircrect(node *list,circ c,rect r,FILE *out);
-void intcircle(node *list,circ c1,circ c2,FILE *out);
-void intrectangle(node *list,rect r1,rect r2,FILE *out);
-void intern(int i,double x,double y,node *list,FILE *out);
-void intpointcircle(double x,double y,node *list,circ c,FILE *out);
-void intpointrect(double x,double y,node *list,rect r,FILE *out);
+void intersect(int i,int j,node *list,FILE *out); /* verifica se há intersecção entre duas formas de um arquivo .svg. A verificação é relatada em um arquivo .txt*/
+void intcircrect(node *list,circ c,rect r,FILE *out); /* especificação da função intersect, verifica intersecção entre um retângulo e um círculo, desenhando um retângulo transparente de borda preta os envolvendo se sim, de borda preta tracejada caso contrário*/
+void intcircle(node *list,circ c1,circ c2,FILE *out); /* especificação da função intersect, verifica intersecção entre dois círculos, desenhando um retângulo transparente de borda preta os envolvendo se sim, de borda preta tracejada caso contrário*/
+void intrectangle(node *list,rect r1,rect r2,FILE *out); /* especificação da função intersect, verifica intersecção entre dois retângulos, desenhando um retângulo transparente de borda preta os envolvendo se sim, de borda preta tracejada caso contrário*/
+void intern(int i,double x,double y,node *list,FILE *out); /* verifica se um ponto (x,y) é interno a uma forma de um arquivo .svg. A verificação é relatada em um arquivo .txt*/
+void intpointcircle(double x,double y,node *list,circ c,FILE *out); /* especificação da função intern, verifica se um ponto é interno a um círculo, destacando-o e pintando-o de azul se for interno, de magenta caso contrário. Também desenha uma linha de mesma cor, conectando o ponto ao centro do círculo*/
+void intpointrect(double x,double y,node *list,rect r,FILE *out); /* especificação da função intern, verifica se um ponto é interno a um retângulo, destacando-o e pintando-o de azul se for interno, de magenta caso contrário. Também desenha uma linha de mesma cor, conectando o ponto ao ponto de âncora do retângulo*/

@@ -1,2 +1,2 @@
-void paint(int i,char *cb,char *cp,node *list,FILE *out);
-node *delf(int i,node *list,FILE *out);
+void paint(int i,char *cb,char *cp,node *list,FILE *out); /* pinta um elemento de índice i em um arquivo .svg de outra cor, informando sua posição em um arquivo .txt*/
+node *delf(int i,node *list,FILE *out); /* remove um elemento de índice i de um arquivo .svg, liberando espaço na lista. Também gera um arquivo .txt com os dados dos elementos deletados*/

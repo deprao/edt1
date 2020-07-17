@@ -91,7 +91,7 @@ void qry(node *list,char *qryfile,char *outname){
         }
         if(strcmp(comm,"delf")==0){
             fscanf(qryarq,"%d",&i);
-            list=delf(i,list,out);
+              list=delf(i,list,out);
         }
         if(strcmp(comm,"delf*")==0){
             fscanf(qryarq,"%d %d",&i,&j);

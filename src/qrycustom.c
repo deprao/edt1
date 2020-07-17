@@ -30,7 +30,7 @@ node *delf(int i,node *list,FILE *out){
       node *aux=searchfig(list,i);
       
      if(aux!=NULL){
-       fprintf(out,"delf %d\n",i); 
+        fprintf(out,"delf %d\n",i); 
      switch(aux->figtype){
         case 'c':
          fprintf(out,"%d: %lf %lf %lf %s %s\n",i,aux->figure->c.x,aux->figure->c.y,aux->figure->c.r,aux->figure->c.cb,aux->figure->c.cp);

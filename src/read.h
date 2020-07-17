@@ -1,3 +1,3 @@
-char *getfile(char *pathname);
-node *geo(char *geofile);
-void qry(node *list,char *qryfile,char *outname);
+char *getfile(char *pathname); /* obtém o nome de um arquivo através de um caminho de diretório*/
+node *geo(char *geofile); /* lê um arquivo .geo, organizando os dados obtidos em uma lista dinâmica*/
+void qry(node *list,char *qryfile,char *outname); /* lê um arquivo de consulta .qry, realizando cada comando de consulta lido, gera um arquivo .txt com os dados de cada consulta e atualiza o arquivo .svg criado pelo arquivo .geo de acordo*/

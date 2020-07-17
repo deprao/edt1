@@ -69,7 +69,7 @@ void deletelist(node *list){
         list=list->next;
         free(aux->figure);
         free(aux);
-    }
+        }
 }
 
 void circle(node *list,double x,double y,double r,char *cb,char *cp){
@@ -97,7 +97,7 @@ void rectangle(node *list,double x,double y,double w,double h,char *cb,char *cp)
 void texto(node *list,double x,double y,char *t,char *cb,char *cp){
     while(list->figure!=NULL)
        list=list->next;
-    list->figure=malloc(sizeof(double)*2+sizeof(char)*80);
+    list->figure=malloc(sizeof(char)*80+sizeof(double)*2);
     list->figure->t.x=x;
     list->figure->t.y=y;
     strcpy(list->figure->t.txt,t);
